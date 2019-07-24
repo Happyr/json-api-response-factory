@@ -3,15 +3,15 @@
 namespace Tests\Happyr\JsonApiResponseFactory\Unit;
 
 use Happyr\JsonApiResponseFactory\ResponseFactory;
-use Happyr\JsonApiResponseFactory\ResponseModelInterface;
-use Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Pagination\Cursor;
-use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Scope;
 use Nyholm\NSA;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyItemTransformer;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyPaginator;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyResponseModel;
 
 /**
  * @author Radoje Albijanic <radoje.albijanic@gmail.com>
@@ -73,7 +73,7 @@ class ResponseFactoryTest extends TestCase
             ->willReturn(['someKey' => 'someValue']);
         $this->fractal->method('createData')
             ->willReturn($scope);
-        $response = $this->factory->createWithItem(new \stdClass(), new DummyTransformer());
+        $response = $this->factory->createWithItem(new \stdClass(), new DummyItemTransformer());
 
         self::assertEquals(
             json_encode(['someKey' => 'someValue',]),
@@ -92,7 +92,7 @@ class ResponseFactoryTest extends TestCase
             ->willReturn(['someKey' => 'someValue', 'someOtherKey' => 'someOtherValue']);
         $this->fractal->method('createData')
             ->willReturn($scope);
-        $response = $this->factory->createWithCollection([new \stdClass()], new DummyTransformer());
+        $response = $this->factory->createWithCollection([new \stdClass()], new DummyItemTransformer());
 
         self::assertEquals(
             json_encode(['someKey' => 'someValue', 'someOtherKey' => 'someOtherValue']),
@@ -100,59 +100,5 @@ class ResponseFactoryTest extends TestCase
         );
         self::assertTrue($response->headers->has('Content-Type'));
         self::assertEquals('application/vnd.api+json', $response->headers->get('Content-Type'));
-    }
-}
-
-class DummyPaginator implements PaginatorInterface
-{
-    public function getCurrentPage()
-    {
-        return 1;
-    }
-
-    public function getLastPage()
-    {
-        return 2;
-    }
-
-    public function getTotal()
-    {
-        return 2;
-    }
-
-    public function getCount()
-    {
-        return 20;
-    }
-
-    public function getPerPage()
-    {
-        return 10;
-    }
-
-    public function getUrl($page)
-    {
-        return 'http://dummy-domain-name.dummy-domain';
-    }
-}
-
-class DummyResponseModel implements ResponseModelInterface
-{
-    public function getHttpStatusCode(): int
-    {
-        return 401;
-    }
-
-    public function getPayload(): array
-    {
-        return ['someKey' => 'someValue'];
-    }
-}
-
-class DummyTransformer extends AbstractTransformer
-{
-    public function getResourceName(): string
-    {
-        return 'dummy-item';
     }
 }
