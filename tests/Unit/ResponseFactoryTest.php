@@ -136,8 +136,8 @@ class DummyPaginator implements PaginatorInterface
     }
 }
 
-class DummyResponseModel implements ResponseModelInterface {
-
+class DummyResponseModel implements ResponseModelInterface
+{
     public function getHttpStatusCode(): int
     {
         return 401;

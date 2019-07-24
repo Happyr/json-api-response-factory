@@ -28,7 +28,6 @@ abstract class AbstractMeta implements ResponseModelInterface
     public function getPayload(): array
     {
         return [
-            'data' => null,
             'meta' => $this->meta,
         ];
     }
