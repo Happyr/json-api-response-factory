@@ -9,7 +9,6 @@ use League\Fractal\Manager;
 use League\Fractal\Pagination\Cursor;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Scope;
-use League\Fractal\ScopeFactory;
 use Nyholm\NSA;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
