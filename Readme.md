@@ -6,3 +6,4 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/happyr/json-api-response-factory.svg?style=flat-square)](https://scrutinizer-ci.com/g/happyr/json-api-response-factory)
 [![Quality Score](https://img.shields.io/scrutinizer/g/happyr/json-api-response-factory.svg?style=flat-square)](https://scrutinizer-ci.com/g/happyr/json-api-response-factory)
 [![Total Downloads](https://img.shields.io/packagist/dt/happyr/json-api-response-factory.svg?style=flat-square)](https://packagist.org/packages/happyr/json-api-response-factory)
+
