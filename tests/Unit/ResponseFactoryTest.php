@@ -76,7 +76,7 @@ class ResponseFactoryTest extends TestCase
         $response = $this->factory->createWithItem(new \stdClass(), new DummyTransformer());
 
         self::assertEquals(
-            json_encode(['someKey' => 'someValue',]),
+            json_encode(['someKey' => 'someValue']),
             $response->getContent()
         );
         self::assertTrue($response->headers->has('Content-Type'));
