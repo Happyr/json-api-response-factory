@@ -18,7 +18,7 @@ class ResponseFactoryTest extends TestCase
      */
     private $factory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $fractal = new Manager(new ScopeFactory());
         $this->factory = new ResponseFactory(
