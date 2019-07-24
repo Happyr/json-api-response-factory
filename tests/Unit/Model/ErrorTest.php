@@ -18,7 +18,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 400,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );
@@ -30,7 +30,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 500,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );
@@ -42,7 +42,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 403,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );
@@ -54,7 +54,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 404,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );
@@ -66,7 +66,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 401,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );
@@ -78,7 +78,7 @@ class ErrorTest extends TestCase
         self::assertEquals(
             [
                 'status' => 400,
-                'title' => 'someTitle'
+                'title' => 'someTitle',
             ],
             $error->getErrorData()
         );

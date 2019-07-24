@@ -29,7 +29,7 @@ class MultipleErrorTest extends TestCase
         self::assertEquals(
             [
                 'errors' => [
-                    [ 'someKey'=>'someValue'],
+                    ['someKey' => 'someValue'],
                 ],
             ],
             $error->getPayload()
