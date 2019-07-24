@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Model;
+namespace Tests\Happyr\JsonApiResponseFactory\Unit\Model;
 
 use Happyr\JsonApiResponseFactory\Model\ErrorWithViolation;
 use PHPUnit\Framework\TestCase;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Model;
+namespace Tests\Happyr\JsonApiResponseFactory\Unit\Model;
 
 use Happyr\JsonApiResponseFactory\Model\Error;
 use Happyr\JsonApiResponseFactory\Model\Message;

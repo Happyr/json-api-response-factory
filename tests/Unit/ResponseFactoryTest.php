@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Happyr\JsonApiResponseFactory\Unit;
 
 use Happyr\JsonApiResponseFactory\ResponseFactory;
 use Happyr\JsonApiResponseFactory\ResponseModelInterface;

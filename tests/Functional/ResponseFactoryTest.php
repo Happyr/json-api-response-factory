@@ -1,12 +1,13 @@
 <?php
 
-namespace Tests\Functional;
+namespace Tests\Happyr\JsonApiResponseFactory\Functional;
 
 use Happyr\JsonApiResponseFactory\ResponseFactory;
-use Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer;
 use League\Fractal\Manager;
 use League\Fractal\ScopeFactory;
 use PHPUnit\Framework\TestCase;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyItem;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyItemTransformer;
 
 /**
  * @author Radoje Albijanic <radoje.albijanic@gmail.com>
@@ -53,30 +54,5 @@ class ResponseFactoryTest extends TestCase
             ]]),
             $response->getContent()
         );
-    }
-}
-
-class DummyItem
-{
-    public $id;
-
-    public function __construct($id)
-    {
-        $this->id = $id;
-    }
-}
-
-class DummyItemTransformer extends AbstractTransformer
-{
-    public function getResourceName(): string
-    {
-        return 'dummy-item';
-    }
-
-    public function transform(DummyItem $item): array
-    {
-        return [
-            'id' => $item->id,
-        ];
     }
 }

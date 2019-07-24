@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Model;
+namespace Tests\Happyr\JsonApiResponseFactory\Unit\Model;
 
-use Happyr\JsonApiResponseFactory\Model\AbstractError;
 use Happyr\JsonApiResponseFactory\Model\MultipleError;
 use Nyholm\NSA;
 use PHPUnit\Framework\TestCase;
+use Tests\Happyr\JsonApiResponseFactory\Shared\DummyError;
 
 /**
  * @author Radoje Albijanic <radoje.albijanic@gmail.com>
@@ -40,18 +40,5 @@ class MultipleErrorTest extends TestCase
     {
         $error = new MultipleError(400, []);
         self::assertEquals(400, $error->getHttpStatusCode());
-    }
-}
-
-class DummyError extends AbstractError
-{
-    public function __construct()
-    {
-        parent::__construct('someTitle', 400);
-    }
-
-    public function getErrorData(): array
-    {
-        return ['someKey' => 'someValue'];
     }
 }
