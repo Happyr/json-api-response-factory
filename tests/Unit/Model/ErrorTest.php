@@ -12,9 +12,9 @@ use PHPUnit\Framework\TestCase;
  */
 class ErrorTest extends TestCase
 {
-    public function testCreateError(): void
+    public function testError(): void
     {
-        $error = Error::createError('someTitle', 400);
+        $error = Error::error('someTitle', 400);
         self::assertEquals(
             [
                 'status' => 400,
@@ -24,9 +24,9 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testCreateServerError(): void
+    public function testServerError(): void
     {
-        $error = Error::createServerError('someTitle');
+        $error = Error::serverError('someTitle');
         self::assertEquals(
             [
                 'status' => 500,
@@ -36,9 +36,9 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testCreateForbidden(): void
+    public function testForbidden(): void
     {
-        $error = Error::createForbidden('someTitle');
+        $error = Error::forbidden('someTitle');
         self::assertEquals(
             [
                 'status' => 403,
@@ -48,9 +48,9 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testCreateNotFound(): void
+    public function testNotFound(): void
     {
-        $error = Error::createNotFound('someTitle');
+        $error = Error::notFound('someTitle');
         self::assertEquals(
             [
                 'status' => 404,
@@ -60,9 +60,9 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testCreateUnauthorized(): void
+    public function testUnauthorized(): void
     {
-        $error = Error::createUnauthorized('someTitle');
+        $error = Error::unauthorized('someTitle');
         self::assertEquals(
             [
                 'status' => 401,
@@ -72,9 +72,9 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testCreateInvalid(): void
+    public function testInvalid(): void
     {
-        $error = Error::createInvalid('someTitle');
+        $error = Error::invalid('someTitle');
         self::assertEquals(
             [
                 'status' => 400,
