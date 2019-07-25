@@ -7,3 +7,4 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/happyr/json-api-response-factory.svg?style=flat-square)](https://scrutinizer-ci.com/g/happyr/json-api-response-factory)
 [![Total Downloads](https://img.shields.io/packagist/dt/happyr/json-api-response-factory.svg?style=flat-square)](https://packagist.org/packages/happyr/json-api-response-factory)
 
+A small wrapper around `league/fractal` to support JsonApi error AND success responses. 
