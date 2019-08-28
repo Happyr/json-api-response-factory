@@ -18,15 +18,11 @@ composer require happyr/json-api-response-factory
 
 `ResponseFactory` can be used for creating single object, collection of objects or custom responses.
 
-###Transformers
+### Transformers
 
 Each object that is used in the response needs a transformer that implements `Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer`:
 
 ```php
-<?php
-
-declare(strict_types=1);
-
 namespace App\Transformer;
 
 use Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer;
@@ -70,10 +66,6 @@ $response = $responseFactory->createWithCollection($items, new FooTransformer())
 To use response `ResponseFactory` to create response with custom payload/status codes you should create class that implements `Happyr\JsonApiResponseFactory\ResponseModelInterface`:
 
 ```php
-<?php
-
-declare(strict_types=1);
-
 namespace App\Transformer;
 
 use Happyr\JsonApiResponseFactory\ResponseModelInterface;
@@ -102,3 +94,4 @@ $response = $responseFactory->createWithResponseModel($model);
 
 In `src/Model/` there are models for usual message responses (accepted, created etc), and error responses in compliance with json-api error standard
 that you can use, or take a hint how we are using the library and write your own models.
+
