@@ -23,8 +23,6 @@ composer require happyr/json-api-response-factory
 Each object that is used in the response needs a transformer that implements `Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer`:
 
 ```php
-namespace App\Transformer;
-
 use Happyr\JsonApiResponseFactory\Transformer\AbstractTransformer;
 
 final class FooTransformer extends AbstractTransformer
@@ -98,8 +96,6 @@ Response will look like this:
 To use response `ResponseFactory` to create response with custom payload/status codes you should create class that implements `Happyr\JsonApiResponseFactory\ResponseModelInterface`:
 
 ```php
-namespace App\Transformer;
-
 use Happyr\JsonApiResponseFactory\ResponseModelInterface;
 
 final class InvalidRequestResponseModel implements ResponseModelInterface
@@ -141,7 +137,7 @@ Example response for message:
 }
 ```
 
-Example response for validation failed response: 
+Example response for validation failed: 
 ```json
 {
   "errors":[
