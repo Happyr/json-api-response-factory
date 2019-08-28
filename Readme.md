@@ -38,7 +38,7 @@ final class FooTransformer extends AbstractTransformer
    {
        return [
            'id' => $item->getId(),
-           'bar' =>  $item->getBar(),
+           'bar' =>  (string)$item->getBar(),
        ];
    }
 }
@@ -50,7 +50,18 @@ final class FooTransformer extends AbstractTransformer
 $item = new Foo('bar');
 $response = $responseFactory->createWithItem($item, new FooTransformer());
 ```
-
+Response will look like this: 
+```json
+{
+    "data": {
+        "type": "foo",
+        "id": "1",
+        "attributes": {
+            "bar": "bar"
+        }
+    }
+}
+```
 ### Response with collection of items
 
 ```php
@@ -59,6 +70,27 @@ $items = [
     new Foo('baz'),
 ];
 $response = $responseFactory->createWithCollection($items, new FooTransformer());
+```
+Response will look like this: 
+```json
+{
+    "data": [
+        {
+            "type": "foo",
+            "id": "1",
+            "attributes": {
+                "bar": "bar"
+            }
+        },
+        {
+            "type": "foo",
+            "id": "2",
+            "attributes": {
+                "bar": "baz"
+            }
+        }
+    ]
+}
 ```
 
 ### Custom responses
@@ -91,7 +123,53 @@ and pass it to response factory:
 $model = new InvalidRequestResponseModel();
 $response = $responseFactory->createWithResponseModel($model);
 ```
-
+Response will look lie this:
+```json
+{
+    "error": "Invalid request."
+}
+```
 In `src/Model/` there are models for usual message responses (accepted, created etc), and error responses in compliance with json-api error standard
 that you can use, or take a hint how we are using the library and write your own models.
+
+Example response for message:
+```json
+{
+    "meta": {
+        "message": "Accepted"
+    }
+}
+```
+
+Example response for validation failed response: 
+```json
+{
+  "errors":[
+    {
+      "status": "400",
+      "title": "Validation failed",
+      "detail": "Request parameter is missing or not valid.",
+      "source": {
+        "parameter": "foo",
+        "message": "This value should not be blank."
+      },
+      "links": {
+        "about": "http://docs.docs/errors/missing-parameter"
+      }
+    },
+    {
+      "status": "400",
+      "title": "Validation failed",
+      "detail": "Request parameter is missing or not valid.",
+      "source": {
+        "parameter": "bar",
+        "message": "This value has to be larger than 30."
+      },
+      "links": {
+        "about": "http://docs.docs/errors/range"
+      }
+    }
+  ]
+}
+```
 
