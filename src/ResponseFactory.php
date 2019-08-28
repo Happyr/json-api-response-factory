@@ -31,17 +31,19 @@ final class ResponseFactory
         return $this->fractal;
     }
 
-    public function createWithItem($item, AbstractTransformer $transformer): JsonResponse
+    public function createWithItem($item, AbstractTransformer $transformer, array $meta = []): JsonResponse
     {
         $resource = new Item($item, $transformer, $transformer->getResourceName());
+        $resource->setMeta($meta);
         $rootScope = $this->fractal->createData($resource);
 
         return $this->createWithArray($rootScope->toArray());
     }
 
-    public function createWithCollection($collection, AbstractTransformer $transformer): JsonResponse
+    public function createWithCollection($collection, AbstractTransformer $transformer, array $meta = []): JsonResponse
     {
         $resource = new Collection($collection, $transformer, $transformer->getResourceName());
+        $resource->setMeta($meta);
         if (null !== $this->paginator) {
             $resource->setPaginator($this->paginator);
         } elseif (null !== $this->cursor) {
