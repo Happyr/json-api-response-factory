@@ -140,7 +140,7 @@ Example response for message:
 Example response for validation failed: 
 ```json
 {
-  "errors":[
+  "errors": [
     {
       "status": "400",
       "title": "Validation failed",
