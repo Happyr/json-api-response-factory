@@ -28,7 +28,7 @@ class ResponseFactoryTest extends TestCase
      */
     private $fractal;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->fractal = $this->getMockBuilder(Manager::class)
         ->disableOriginalConstructor()
