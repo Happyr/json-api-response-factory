@@ -17,11 +17,11 @@
     "php": "^7.2",
     "ext-json": "*",
     "league/fractal": "^0.18.0",
-    "symfony/http-foundation": "^4.3",
-    "symfony/validator": "^4.3"
+    "symfony/http-foundation": "^4.3 || ^5.0",
+    "symfony/validator": "^4.3 || ^5.0"
   },
   "require-dev": {
-    "symfony/phpunit-bridge": "^4.3",
+    "symfony/phpunit-bridge": "^4.3 || ^5.0",
     "nyholm/nsa": "^1.1"
   },
   "autoload": {
