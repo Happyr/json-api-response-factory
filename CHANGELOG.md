@@ -1,6 +1,6 @@
 # Change Log
 
-The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release. 
+The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
 ## 0.3.0
 
@@ -12,6 +12,10 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 - Content-Type depends on the serializer used or the second parameter for `ResponseFactory`.
 - Removed `final` keyword from models
+
+### Removed
+
+- Message::noContent()
 
 ## 0.2.0
 
