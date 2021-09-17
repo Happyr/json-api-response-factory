@@ -56,19 +56,4 @@ class MessageTest extends TestCase
             $message->getPayload()
         );
     }
-
-    public function testNoContent(): void
-    {
-        $message = Message::noContent('someTitle');
-
-        self::assertEquals(204, $message->getHttpStatusCode());
-        self::assertEquals(
-            [
-                'meta' => [
-                    'message' => 'someTitle',
-                ],
-            ],
-            $message->getPayload()
-        );
-    }
 }
