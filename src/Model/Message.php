@@ -7,7 +7,7 @@ namespace Happyr\JsonApiResponseFactory\Model;
 /**
  * @author Radoje Albijanic <radoje.albijanic@gmail.com>
  */
-final class Message extends AbstractMeta
+class Message extends AbstractMeta
 {
     public function __construct(string $message, int $httpStatusCode)
     {
