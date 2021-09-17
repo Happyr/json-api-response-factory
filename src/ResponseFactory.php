@@ -10,6 +10,7 @@ use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use League\Fractal\Serializer\JsonApiSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
@@ -20,10 +21,15 @@ final class ResponseFactory
     private $fractal;
     private $paginator;
     private $cursor;
+    private $contentType;
 
-    public function __construct(Manager $fractal)
+    public function __construct(Manager $fractal, string $contentType = null)
     {
         $this->fractal = $fractal;
+        if (null === $contentType) {
+            $contentType = $fractal->getSerializer() instanceof JsonApiSerializer ? 'application/vnd.api+json' : 'application/json';
+        }
+        $this->contentType = $contentType;
     }
 
     public function getFractal(): Manager
@@ -78,7 +84,7 @@ final class ResponseFactory
     private function createWithArray(array $array, int $statusCode = 200): JsonResponse
     {
         return new JsonResponse($array, $statusCode, [
-            'Content-Type' => 'application/vnd.api+json',
+            'Content-Type' => $this->contentType,
         ]);
     }
 }

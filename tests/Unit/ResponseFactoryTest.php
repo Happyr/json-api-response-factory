@@ -9,6 +9,7 @@ use League\Fractal\Manager;
 use League\Fractal\Pagination\Cursor;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Scope;
+use League\Fractal\Serializer\JsonApiSerializer;
 use Nyholm\NSA;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -39,6 +40,22 @@ class ResponseFactoryTest extends TestCase
         parent::setUp();
     }
 
+    public function testContentType()
+    {
+        $fractal = new Manager();
+        $fractal->setSerializer(new JsonApiSerializer());
+        $factory = new ResponseFactory($fractal);
+
+        $response = $factory->createWithResponseModel(new DummyResponseModel());
+        self::assertTrue($response->headers->has('Content-Type'));
+        self::assertEquals('application/vnd.api+json', $response->headers->get('Content-Type'));
+
+        $factory = new ResponseFactory($fractal, 'foo/bar');
+        $response = $factory->createWithResponseModel(new DummyResponseModel());
+        self::assertTrue($response->headers->has('Content-Type'));
+        self::assertEquals('foo/bar', $response->headers->get('Content-Type'));
+    }
+
     public function testWithPaginator(): void
     {
         $paginator = new DummyPaginator();
@@ -61,7 +78,7 @@ class ResponseFactoryTest extends TestCase
         self::assertEquals(json_encode(['someKey' => 'someValue']), $response->getContent());
         self::assertEquals(401, $response->getStatusCode());
         self::assertTrue($response->headers->has('Content-Type'));
-        self::assertEquals('application/vnd.api+json', $response->headers->get('Content-Type'));
+        self::assertEquals('application/json', $response->headers->get('Content-Type'));
     }
 
     public function testCreateWithItem(): void
@@ -80,7 +97,7 @@ class ResponseFactoryTest extends TestCase
             $response->getContent()
         );
         self::assertTrue($response->headers->has('Content-Type'));
-        self::assertEquals('application/vnd.api+json', $response->headers->get('Content-Type'));
+        self::assertEquals('application/json', $response->headers->get('Content-Type'));
     }
 
     public function testCreateWithCollection(): void
@@ -99,7 +116,7 @@ class ResponseFactoryTest extends TestCase
             $response->getContent()
         );
         self::assertTrue($response->headers->has('Content-Type'));
-        self::assertEquals('application/vnd.api+json', $response->headers->get('Content-Type'));
+        self::assertEquals('application/json', $response->headers->get('Content-Type'));
     }
 }
 
