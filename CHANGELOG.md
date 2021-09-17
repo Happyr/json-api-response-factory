@@ -6,7 +6,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 ### Added
 
-- Support for Symfony 5
+- Support for Symfony 6
 
 ### Changed
 
