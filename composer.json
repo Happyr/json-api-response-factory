@@ -1,7 +1,7 @@
 {
   "name": "happyr/json-api-response-factory",
-  "description": "Response factory in compliance with apijson",
   "type": "library",
+  "description": "Response factory in compliance with apijson",
   "license": "MIT",
   "authors": [
     {
