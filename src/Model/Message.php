@@ -28,9 +28,4 @@ class Message extends AbstractMeta
     {
         return new self($message, 202);
     }
-
-    public static function noContent(string $message = 'No Content'): self
-    {
-        return new self($message, 204);
-    }
 }
