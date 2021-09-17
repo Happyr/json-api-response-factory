@@ -2,6 +2,23 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release. 
 
+## 0.3.0
+
+### Added
+
+- Support for Symfony 5
+
+### Changed
+
+- Content-Type depends on the serializer used or the second parameter for `ResponseFactory`.
+- Removed `final` keyword from models
+
+## 0.2.0
+
+### Added
+
+- Support for Symfony 5
+
 ## 0.1.2
 
 ### Added
