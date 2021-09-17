@@ -9,7 +9,7 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class ErrorWithViolation extends AbstractError
+class ErrorWithViolation extends AbstractError
 {
     public static function create(ConstraintViolationInterface $violation, string $title = 'Validation failed'): self
     {

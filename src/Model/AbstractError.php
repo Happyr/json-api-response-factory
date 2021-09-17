@@ -13,14 +13,14 @@ use Happyr\JsonApiResponseFactory\ResponseModelInterface;
  */
 abstract class AbstractError implements ResponseModelInterface
 {
-    private $id;
-    private $link;
-    private $httpStatusCode;
-    private $code;
-    private $title;
-    private $description;
-    private $source;
-    private $meta;
+    protected $id;
+    protected $link;
+    protected $httpStatusCode;
+    protected $code;
+    protected $title;
+    protected $description;
+    protected $source;
+    protected $meta;
 
     /**
      * @param string $title          a short, human-readable summary of the problem that SHOULD NOT change from occurrence

@@ -9,7 +9,7 @@ use Happyr\JsonApiResponseFactory\ResponseModelInterface;
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class MultipleError implements ResponseModelInterface
+class MultipleError implements ResponseModelInterface
 {
     private $httpStatusCode;
 

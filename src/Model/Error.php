@@ -7,7 +7,7 @@ namespace Happyr\JsonApiResponseFactory\Model;
 /**
  * @author Radoje Albijanic <radoje.albijanic@gmail.com>
  */
-final class Error extends AbstractError
+class Error extends AbstractError
 {
     public static function error(string $title, int $httpCode): self
     {
