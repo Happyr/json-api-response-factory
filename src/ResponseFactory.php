@@ -26,7 +26,7 @@ final class ResponseFactory
     public function __construct(Manager $fractal, string $contentType = null)
     {
         $this->fractal = $fractal;
-        if ($contentType === null) {
+        if (null === $contentType) {
             $contentType = $fractal->getSerializer() instanceof JsonApiSerializer ? 'application/vnd.api+json' : 'application/json';
         }
         $this->contentType = $contentType;
