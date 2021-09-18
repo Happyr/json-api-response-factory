@@ -9,33 +9,51 @@ namespace Happyr\JsonApiResponseFactory\Model;
  */
 class Error extends AbstractError
 {
-    public static function error(string $title, int $httpCode): self
+    /**
+     * @return static
+     */
+    public static function error(string $title, int $httpCode)
     {
-        return new self($title, $httpCode);
+        return new static($title, $httpCode);
     }
 
-    public static function serverError(string $title = 'Internal server error'): self
+    /**
+     * @return static
+     */
+    public static function serverError(string $title = 'Internal server error')
     {
-        return new self($title, 500);
+        return new static($title, 500);
     }
 
-    public static function forbidden(string $title = 'Forbidden'): self
+    /**
+     * @return static
+     */
+    public static function forbidden(string $title = 'Forbidden')
     {
-        return new self($title, 403);
+        return new static($title, 403);
     }
 
-    public static function notFound(string $title = 'Not Found'): self
+    /**
+     * @return static
+     */
+    public static function notFound(string $title = 'Not Found')
     {
-        return new self($title, 404);
+        return new static($title, 404);
     }
 
-    public static function unauthorized(string $title = 'Unauthorized'): self
+    /**
+     * @return static
+     */
+    public static function unauthorized(string $title = 'Unauthorized')
     {
-        return new self($title, 401);
+        return new static($title, 401);
     }
 
-    public static function invalid(string $title = 'Bad Request'): self
+    /**
+     * @return static
+     */
+    public static function invalid(string $title = 'Bad Request')
     {
-        return new self($title, 400);
+        return new static($title, 400);
     }
 }

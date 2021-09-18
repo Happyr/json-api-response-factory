@@ -9,23 +9,35 @@ namespace Happyr\JsonApiResponseFactory\Model;
  */
 class Message extends AbstractMeta
 {
-    public function __construct(string $message, int $httpStatusCode)
+    /**
+     * @return static
+     */
+    final public static function create(string $message, int $httpStatusCode)
     {
-        parent::__construct(['message' => $message], $httpStatusCode);
+        return new static(['message' => $message], $httpStatusCode);
     }
 
-    public static function ok(string $message = 'OK'): self
+    /**
+     * @return static
+     */
+    public static function ok(string $message = 'OK')
     {
-        return new self($message, 200);
+        return static::create($message, 200);
     }
 
-    public static function created(string $message = 'Created'): self
+    /**
+     * @return static
+     */
+    public static function created(string $message = 'Created')
     {
-        return new self($message, 201);
+        return static::create($message, 201);
     }
 
-    public static function accepted(string $message = 'Accepted'): self
+    /**
+     * @return static
+     */
+    public static function accepted(string $message = 'Accepted')
     {
-        return new self($message, 202);
+        return static::create($message, 202);
     }
 }

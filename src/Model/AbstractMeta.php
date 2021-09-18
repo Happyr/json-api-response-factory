@@ -14,7 +14,7 @@ abstract class AbstractMeta implements ResponseModelInterface
     private $meta;
     private $httpStatusCode;
 
-    public function __construct(array $meta, int $httpStatusCode)
+    final public function __construct(array $meta, int $httpStatusCode)
     {
         $this->httpStatusCode = $httpStatusCode;
         $this->meta = $meta;
