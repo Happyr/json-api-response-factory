@@ -14,18 +14,27 @@ class Message extends AbstractMeta
         parent::__construct(['message' => $message], $httpStatusCode);
     }
 
-    public static function ok(string $message = 'OK'): self
+    /**
+     * @return static
+     */
+    public static function ok(string $message = 'OK')
     {
-        return new self($message, 200);
+        return new static($message, 200);
     }
 
-    public static function created(string $message = 'Created'): self
+    /**
+     * @return static
+     */
+    public static function created(string $message = 'Created')
     {
-        return new self($message, 201);
+        return new static($message, 201);
     }
 
-    public static function accepted(string $message = 'Accepted'): self
+    /**
+     * @return static
+     */
+    public static function accepted(string $message = 'Accepted')
     {
-        return new self($message, 202);
+        return new static($message, 202);
     }
 }

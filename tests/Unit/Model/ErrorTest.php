@@ -83,4 +83,18 @@ class ErrorTest extends TestCase
             $error->getErrorData()
         );
     }
+
+    public function testExtendError(): void
+    {
+        $error = AppError::invalid('someTitle');
+        self::assertEquals(['payload'=>'custom'], $error->getPayload());
+    }
+}
+
+class AppError extends Error
+{
+    public function getPayload(): array
+    {
+        return ['payload'=>'custom'];
+    }
 }

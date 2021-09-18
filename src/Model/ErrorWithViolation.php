@@ -11,9 +11,12 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
  */
 class ErrorWithViolation extends AbstractError
 {
-    public static function create(ConstraintViolationInterface $violation, string $title = 'Validation failed'): self
+    /**
+     * @return static
+     */
+    public static function create(ConstraintViolationInterface $violation, string $title = 'Validation failed')
     {
-        $model = new self($title, 400);
+        $model = new static($title, 400);
         $model->setSource([
             'parameter' => $violation->getPropertyPath(),
             'message' => $violation->getMessage(),
