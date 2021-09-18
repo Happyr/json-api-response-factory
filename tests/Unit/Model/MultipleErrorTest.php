@@ -16,7 +16,7 @@ class MultipleErrorTest extends TestCase
 {
     public function testAddError(): void
     {
-        $error = new DummyError();
+        $error = new DummyError('someTitle', 400);
         $multipleError = new MultipleError(400, []);
         $multipleError->addError($error);
 
@@ -25,7 +25,7 @@ class MultipleErrorTest extends TestCase
 
     public function testGetPayload(): void
     {
-        $error = new MultipleError(400, [new DummyError()]);
+        $error = new MultipleError(400, [new DummyError('someTitle', 400)]);
         self::assertEquals(
             [
                 'errors' => [
@@ -45,11 +45,6 @@ class MultipleErrorTest extends TestCase
 
 class DummyError extends AbstractError
 {
-    public function __construct()
-    {
-        parent::__construct('someTitle', 400);
-    }
-
     public function getErrorData(): array
     {
         return ['someKey' => 'someValue'];
