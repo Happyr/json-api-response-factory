@@ -87,7 +87,7 @@ class ErrorTest extends TestCase
     public function testExtendError(): void
     {
         $error = AppError::invalid('someTitle');
-        self::assertEquals(['payload'=>'custom'], $error->getPayload());
+        self::assertEquals(['payload' => 'custom'], $error->getPayload());
     }
 }
 
@@ -95,6 +95,6 @@ class AppError extends Error
 {
     public function getPayload(): array
     {
-        return ['payload'=>'custom'];
+        return ['payload' => 'custom'];
     }
 }

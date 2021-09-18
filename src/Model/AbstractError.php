@@ -27,7 +27,7 @@ abstract class AbstractError implements ResponseModelInterface
      *                               to occurrence of the problem, except for purposes of localization
      * @param int    $httpStatusCode the HTTP status code applicable to this problem, expressed as a string value
      */
-    public function __construct(string $title, int $httpStatusCode)
+    final public function __construct(string $title, int $httpStatusCode)
     {
         $this->title = $title;
         $this->httpStatusCode = $httpStatusCode;
