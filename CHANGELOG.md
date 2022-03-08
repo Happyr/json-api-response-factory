@@ -2,6 +2,12 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
+## 0.4.1
+
+### Added
+
+- Support for fractal 0.20.0
+
 ## 0.4.0
 
 ### Fixed
