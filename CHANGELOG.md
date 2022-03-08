@@ -2,11 +2,16 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
-## 0.4.1
+## 0.5.0
 
 ### Added
 
 - Support for fractal 0.20.0
+
+### Removed
+
+- Support for PHP 7.2 and 7.3
+- Support for Symfony 4
 
 ## 0.4.0
 
