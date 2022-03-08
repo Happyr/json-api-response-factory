@@ -122,32 +122,32 @@ class ResponseFactoryTest extends TestCase
 
 class DummyPaginator implements PaginatorInterface
 {
-    public function getCurrentPage()
+    public function getCurrentPage(): int
     {
         return 1;
     }
 
-    public function getLastPage()
+    public function getLastPage(): int
     {
         return 2;
     }
 
-    public function getTotal()
+    public function getTotal(): int
     {
         return 2;
     }
 
-    public function getCount()
+    public function getCount(): int
     {
         return 20;
     }
 
-    public function getPerPage()
+    public function getPerPage(): int
     {
         return 10;
     }
 
-    public function getUrl($page)
+    public function getUrl(int $page): string
     {
         return 'http://dummy-domain-name.dummy-domain';
     }
