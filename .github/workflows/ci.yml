@@ -8,10 +8,12 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        php: [ '7.2', '7.3', '7.4', '8.0']
-        sf_version: [ '4.4.*', '5.3.*' ]
+        php: [ '7.4', '8.0']
+        sf_version: [ '5.4.*' ]
         include:
-          - php: 8.0
+          - php: '8.0'
+            sf_version: '6.0.*'
+          - php: '8.1'
             sf_version: '6.0.*'
 
     steps:
@@ -41,7 +43,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@2.5.0
         with:
-          php-version: 7.3
+          php-version: 7.4
           coverage: none
 
       - name: Checkout code

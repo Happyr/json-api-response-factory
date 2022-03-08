@@ -147,7 +147,7 @@ class DummyPaginator implements PaginatorInterface
         return 10;
     }
 
-    public function getUrl(int $page): string
+    public function getUrl($page): string
     {
         return 'http://dummy-domain-name.dummy-domain';
     }
