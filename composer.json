@@ -1,8 +1,8 @@
 {
   "name": "happyr/json-api-response-factory",
-  "type": "library",
   "description": "Response factory in compliance with apijson",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Radoje Albijanic",
@@ -24,6 +24,8 @@
     "nyholm/nsa": "^1.1",
     "phpunit/phpunit": "^8.5 || ^9.5"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Happyr\\JsonApiResponseFactory\\": "src/"
@@ -33,7 +35,5 @@
     "psr-4": {
       "Tests\\Happyr\\JsonApiResponseFactory\\": "tests/"
     }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
