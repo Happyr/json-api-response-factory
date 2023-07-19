@@ -141,10 +141,9 @@ Example response for validation failed:
     {
       "status": "400",
       "title": "Validation failed",
-      "detail": "Request parameter is missing or not valid.",
+      "detail": "This value should not be blank.",
       "source": {
         "parameter": "foo",
-        "message": "This value should not be blank."
       },
       "links": {
         "about": "http://docs.docs/errors/missing-parameter"
@@ -153,10 +152,9 @@ Example response for validation failed:
     {
       "status": "400",
       "title": "Validation failed",
-      "detail": "Request parameter is missing or not valid.",
+      "detail": "This value has to be larger than 30.",
       "source": {
         "parameter": "bar",
-        "message": "This value has to be larger than 30."
       },
       "links": {
         "about": "http://docs.docs/errors/range"
