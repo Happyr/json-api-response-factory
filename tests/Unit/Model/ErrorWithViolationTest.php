@@ -28,6 +28,7 @@ class ErrorWithViolationTest extends TestCase
             [
                 'status' => '400',
                 'title' => 'someTitle',
+                'detail' => 'someMessage',
                 'source' => [
                     'parameter' => 'someProperty',
                     'message' => 'someMessage',
