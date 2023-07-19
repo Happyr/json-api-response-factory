@@ -26,7 +26,7 @@ class ErrorWithViolationTest extends TestCase
 
         self::assertEquals(
             [
-                'status' => 400,
+                'status' => '400',
                 'title' => 'someTitle',
                 'source' => [
                     'parameter' => 'someProperty',

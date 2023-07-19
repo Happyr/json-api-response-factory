@@ -17,7 +17,7 @@ class ErrorTest extends TestCase
         $error = Error::error('someTitle', 400);
         self::assertEquals(
             [
-                'status' => 400,
+                'status' => '400',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
@@ -29,7 +29,7 @@ class ErrorTest extends TestCase
         $error = Error::serverError('someTitle');
         self::assertEquals(
             [
-                'status' => 500,
+                'status' => '500',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
@@ -41,7 +41,7 @@ class ErrorTest extends TestCase
         $error = Error::forbidden('someTitle');
         self::assertEquals(
             [
-                'status' => 403,
+                'status' => '403',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
@@ -53,7 +53,7 @@ class ErrorTest extends TestCase
         $error = Error::notFound('someTitle');
         self::assertEquals(
             [
-                'status' => 404,
+                'status' => '404',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
@@ -65,7 +65,7 @@ class ErrorTest extends TestCase
         $error = Error::unauthorized('someTitle');
         self::assertEquals(
             [
-                'status' => 401,
+                'status' => '401',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
@@ -77,7 +77,7 @@ class ErrorTest extends TestCase
         $error = Error::invalid('someTitle');
         self::assertEquals(
             [
-                'status' => 400,
+                'status' => '400',
                 'title' => 'someTitle',
             ],
             $error->getErrorData()
