@@ -17,7 +17,7 @@ class ErrorWithViolation extends AbstractError
     public static function create(ConstraintViolationInterface $violation, string $title = 'Validation failed')
     {
         $model = new static($title, 400);
-        $model->setDescription($violation->getMessage());
+        $model->setDescription((string) $violation->getMessage());
         $model->setSource([
             'parameter' => $violation->getPropertyPath(),
             // @deprecated The 'message' will be removed in a future version
