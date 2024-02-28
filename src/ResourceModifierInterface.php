@@ -7,5 +7,14 @@ use League\Fractal\Scope;
 
 interface ResourceModifierInterface
 {
-    public function modifyResource(ResourceInterface $resource, Scope $scope): void;
+    /**
+     * Modify a Resource before we create a Scope
+     */
+    public function modifyResource(ResourceInterface $resource): void;
+
+    /**
+     * Modify a Scope before we create a response
+     */
+    public function modifyScope(Scope $scope): void;
 }
+

@@ -46,10 +46,13 @@ final class ResponseFactory
     {
         $resource = new Item($item, $transformer, $transformer->getResourceName());
         $resource->setMeta($meta);
-        $rootScope = $this->fractal->createData($resource);
 
         foreach ($this->resourceModifiers as $modifier) {
-            $modifier->modifyResource($resource, $rootScope);
+            $modifier->modifyResource($resource);
+        }
+        $rootScope = $this->fractal->createData($resource);
+        foreach ($this->resourceModifiers as $modifier) {
+            $modifier->modifyScope($rootScope);
         }
 
         return $this->createWithArray($rootScope->toArray());
@@ -64,11 +67,14 @@ final class ResponseFactory
         } elseif (null !== $this->cursor) {
             $resource->setCursor($this->cursor);
         }
+
+        foreach ($this->resourceModifiers as $modifier) {
+            $modifier->modifyResource($resource);
+        }
         $rootScope = $this->fractal->createData($resource);
         foreach ($this->resourceModifiers as $modifier) {
-            $modifier->modifyResource($resource, $rootScope);
+            $modifier->modifyScope($rootScope);
         }
-
         return $this->createWithArray($rootScope->toArray());
     }
 
