@@ -2,6 +2,12 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
+## 0.7.0
+
+### Added
+
+- `ResourceModifierInterface` to modify the resource before converting to array.
+
 ## 0.6.0
 
 ### Added

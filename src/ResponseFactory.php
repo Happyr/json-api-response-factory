@@ -22,14 +22,19 @@ final class ResponseFactory
     private $paginator;
     private $cursor;
     private $contentType;
+    private $resourceModifiers;
 
-    public function __construct(Manager $fractal, string $contentType = null)
+    /**
+     * @param iterable<ResourceModifierInterface> $resourceModifiers
+     */
+    public function __construct(Manager $fractal, ?string $contentType = null, iterable $resourceModifiers = [])
     {
         $this->fractal = $fractal;
         if (null === $contentType) {
             $contentType = $fractal->getSerializer() instanceof JsonApiSerializer ? 'application/vnd.api+json' : 'application/json';
         }
         $this->contentType = $contentType;
+        $this->resourceModifiers = $resourceModifiers;
     }
 
     public function getFractal(): Manager
@@ -42,6 +47,10 @@ final class ResponseFactory
         $resource = new Item($item, $transformer, $transformer->getResourceName());
         $resource->setMeta($meta);
         $rootScope = $this->fractal->createData($resource);
+
+        foreach ($this->resourceModifiers as $modifier) {
+            $modifier->modifyResource($resource, $rootScope);
+        }
 
         return $this->createWithArray($rootScope->toArray());
     }
@@ -56,6 +65,9 @@ final class ResponseFactory
             $resource->setCursor($this->cursor);
         }
         $rootScope = $this->fractal->createData($resource);
+        foreach ($this->resourceModifiers as $modifier) {
+            $modifier->modifyResource($resource, $rootScope);
+        }
 
         return $this->createWithArray($rootScope->toArray());
     }
