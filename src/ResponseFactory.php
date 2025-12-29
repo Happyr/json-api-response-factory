@@ -23,7 +23,7 @@ final class ResponseFactory
     private $cursor;
     private $contentType;
 
-    public function __construct(Manager $fractal, string $contentType = null)
+    public function __construct(Manager $fractal, ?string $contentType = null)
     {
         $this->fractal = $fractal;
         if (null === $contentType) {
